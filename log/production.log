@@ -1,0 +1,13 @@
+D, [2017-06-26T15:38:30.588963 #22955] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+D, [2017-06-26T15:38:30.676642 #22955] DEBUG -- :   [1m[35m (87.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+D, [2017-06-26T15:38:30.775458 #22955] DEBUG -- :   [1m[35m (97.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+D, [2017-06-26T15:38:30.781633 #22955] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+I, [2017-06-26T15:38:30.781733 #22955]  INFO -- : Migrating to CreateArticles (20170626094851)
+D, [2017-06-26T15:38:30.782746 #22955] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+D, [2017-06-26T15:38:30.783652 #22955] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "articles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "text" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+D, [2017-06-26T15:38:30.785404 #22955] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170626094851"]]
+D, [2017-06-26T15:38:30.867263 #22955] DEBUG -- :   [1m[35m (81.6ms)[0m  [1m[36mcommit transaction[0m
+D, [2017-06-26T15:38:30.869177 #22955] DEBUG -- :   [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+D, [2017-06-26T15:38:30.872785 #22955] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2017-06-26T15:38:30.873970 #22955] DEBUG -- :   [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "production"], ["created_at", "2017-06-26 10:08:30.873020"], ["updated_at", "2017-06-26 10:08:30.873020"]]
+D, [2017-06-26T15:38:30.949414 #22955] DEBUG -- :   [1m[35m (75.2ms)[0m  [1m[36mcommit transaction[0m

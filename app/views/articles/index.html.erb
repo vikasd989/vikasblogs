@@ -1,0 +1,22 @@
+<h4>View Page</h4>
+ <%= link_to "Add New Data", articles_new_path %><br>
+ <table border=1>
+  <tr>
+   <td>S no.</td>
+   <td>Title</td>
+   <td>Text</td>
+   <td>Option</td>
+  </tr>
+
+  <%
+   count=1
+   @articles.each do |article| %>
+   <tr>
+    <td><%=count %></td>
+    <td><%=article.title %></td>
+    <td><%=article.text %></td>
+    <td>
+     <%= link_to 'view', article_path(article) %>
+    </td>
+   </tr>
+  <% count+=1 end %>
